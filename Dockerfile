@@ -5,6 +5,7 @@ RUN apt-get update && apt-get install -y \
     python3-dev \
     gcc \
     python3-rpi.gpio \
+    libpq-dev \
     && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app

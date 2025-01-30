@@ -3,3 +3,5 @@ adafruit-circuitpython-bme280
 adafruit-circuitpython-busdevice
 adafruit-blinka
 RPi.GPIO
+psycopg2
+APScheduler
