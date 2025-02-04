@@ -1,1 +1,1 @@
-trying to read volcano temp
+This is a raspberry pi4 reading a bme280 pressure, temperature and humidity sensor. That information is then used by flask to turn it into an api all inside 1 of 3 docker containers.  The second container is a database that is reading the sensor information using the api.  The third docker container is a graphana container to pull in the database information into a dashboard.  All three container are launched inside of the same network using docker compose.

@@ -1,10 +1,12 @@
 import time
+import os
 import board
 import busio
 import psycopg2
 from adafruit_bme280 import basic as adafruit_bme280
 from flask import Flask, jsonify
 from apscheduler.schedulers.background import BackgroundScheduler
+from dotenv import load_dotenv
 
 i2c = busio.I2C(board.SCL, board.SDA)
 bme280 = adafruit_bme280.Adafruit_BME280_I2C(i2c, address=0x76)
@@ -16,10 +18,10 @@ app = Flask(__name__)
 
 # Database connection
 conn = psycopg2.connect(
-    dbname="weatherdb",
-    user="user",
-    password="password",
-    host="postgres-db"
+    dbname=os.getenv("DB_NAME", "weatherdb"),
+    user=os.getenv("DB_USER", "user"),
+    password=os.getenv("DB_PASSWORD", "password"),
+    host=os.getenv("DB_HOST", "postgres-db"),
 )
 
 def store_sensor_data():

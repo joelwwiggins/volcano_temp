@@ -5,3 +5,4 @@ adafruit-blinka
 RPi.GPIO
 psycopg2
 APScheduler
+python-dotenv
